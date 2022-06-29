@@ -1,4 +1,5 @@
 //https://leetcode.com/problems/contains-duplicate/
+//USING SET
 class Solution {
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> seen =new HashSet<Integer>();
@@ -11,5 +12,18 @@ class Solution {
         }
         return false;
       
+    }
+}
+//USING HASHMAP
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Map<Integer,Integer> seen=new HashMap<>();
+        for(int i: nums)
+        {
+            if(seen.containsKey(i))
+                return true;
+            seen.put(i,i);
+        }
+        return false;
     }
 }
