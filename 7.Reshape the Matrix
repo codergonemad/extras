@@ -1,4 +1,31 @@
 //https://leetcode.com/problems/reshape-the-matrix/
+class Solution {
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+        int[][] result=new int[r][c];
+        if(mat.length*mat[0].length!=r*c)
+            return mat;
+        else
+        {
+        int temp=0;
+        int temp1=0;
+        for(int i=0;i<mat.length;i++)
+        {
+            for(int j=0;j<mat[0].length;j++)
+            {
+                result[temp][temp1]=mat[i][j];
+                temp1++;
+                if(temp1==c)
+                {
+                    temp++;
+                    temp1=0;
+                }
+            }
+        }
+        }
+        return result;
+        
+    }
+}
 //WRONG SOLUTION BUT LOOK WHY HASHMAP IS EMPTY
 class Solution {
     public int[][] matrixReshape(int[][] mat, int r, int c) {
