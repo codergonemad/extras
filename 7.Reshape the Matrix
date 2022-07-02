@@ -1,0 +1,38 @@
+//https://leetcode.com/problems/reshape-the-matrix/
+//WRONG SOLUTION BUT LOOK WHY HASHMAP IS EMPTY
+class Solution {
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+        HashMap<Integer,Integer> seen=new HashMap<>();
+        int[][] temp=new int[r][c];
+        if(mat.length==r && mat[0].length==c)
+            return mat;
+        else
+        {
+            int k=0;
+            for(int i=0;i<mat.length;i++)
+            {
+                for(int j=0;j<mat[0].length;j++)
+                {
+                    seen.put(k,mat[i][j]);
+                    k++;
+                }
+            }
+            
+            int curr=0;
+             if(curr!=k)
+            {
+            for(int i=0;i<r;i++)
+            {
+                for(int j=0;j<c;j++)
+                {
+                    temp[i][j]=seen.get(curr);
+                    curr++;
+                }
+            }
+        }
+            
+        
+    }
+        return temp;
+}
+}
