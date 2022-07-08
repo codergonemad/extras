@@ -1,0 +1,16 @@
+//https://leetcode.com/problems/single-number/
+class Solution {
+    public int singleNumber(int[] nums) {
+        HashMap<Integer,Integer> seen=new HashMap<>();
+        for(int i=0;i<nums.length;i++)
+        {
+            seen.put(nums[i],seen.getOrDefault(nums[i],0)+1);
+        }
+        for(Integer i:seen.keySet())
+        {
+            if(seen.get(i)==1)
+                return i;
+        }
+        return 0;
+    }
+}
