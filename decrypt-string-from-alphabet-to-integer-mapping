@@ -1,0 +1,24 @@
+//https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/
+class Solution {
+    public String freqAlphabets(String s) {
+        StringBuilder ans=new StringBuilder();
+        int i=0;
+        while(i<s.length())
+        {
+            if(i<s.length()-2 && s.charAt(i+2)=='#')
+            {
+                String temp=""+s.charAt(i)+""+s.charAt(i+1);
+                int num=Integer.parseInt(temp);
+                ans.append((char)(97+num-1));
+                i=i+3;
+            }
+            else
+            {
+                int num=Integer.parseInt(""+s.charAt(i));
+                ans.append((char)(97+num-1));
+                i++;
+        }
+    }
+        return ans.toString();
+}
+}
